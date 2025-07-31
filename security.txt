@@ -1,0 +1,49 @@
+Contact: security@prismprotocol.fun
+Contact: mailto:security@prismprotocol.fun
+Expires: 2026-08-01T00:00:00.000Z
+Encryption: https://prismprotocol.fun/pgp-key.txt
+Acknowledgments: https://prismprotocol.fun/security/acknowledgments
+Policy: https://prismprotocol.fun/security/policy
+Preferred-Languages: en
+Canonical: https://prismprotocol.fun/.well-known/security.txt
+
+# Prism Protocol Security Information
+
+# Scope
+This security.txt covers the Prism Protocol smart contract and infrastructure:
+- Solana Program ID: G7G2o7vaMvacSkMENdBjqjECjpK3USBpDmSzpDo6JWrf
+- GitHub Repository: https://github.com/prism-protocol/liquidity-pool
+- Website: https://prismprotocol.fun
+
+# Reporting Guidelines
+We take security seriously and appreciate responsible disclosure of vulnerabilities.
+
+When reporting security issues, please include:
+- Detailed description of the vulnerability
+- Steps to reproduce the issue
+- Potential impact assessment
+- Suggested remediation if available
+
+# Response Timeline
+- Initial acknowledgment: Within 24 hours
+- Preliminary assessment: Within 72 hours
+- Resolution timeline: Dependent on severity
+
+# Out of Scope
+- Issues in third-party dependencies
+- Social engineering attacks
+- Physical security issues
+- Denial of service attacks
+
+# Safe Harbor
+We support responsible security research and will not pursue legal action
+against researchers who:
+- Act in good faith
+- Do not access or modify user data
+- Do not disrupt our services
+- Report vulnerabilities responsibly
+
+# Contact Information
+Primary: security@prismprotocol.fun
+Business: contact@prismprotocol.fun
+Support: support@prismprotocol.fun
