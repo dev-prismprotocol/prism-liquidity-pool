@@ -23,6 +23,10 @@ pub mod liquidity_pool {
         instructions::create_pool::handler(ctx, virtual_token_reserve, virtual_sol_reserve)
     }
 
+    pub fn create_pool_token_account(ctx: Context<CreatePoolTokenAccount>) -> Result<()> {
+        instructions::create_pool_token_account::create_pool_token_account_handler(ctx)
+    }
+
     pub fn add_liquidity(
         ctx: Context<AddLiquidity>,
         sol_amount: u64,
