@@ -25,15 +25,12 @@ pub struct AddLiquidity<'info> {
         constraint = authority_token_account.mint == token_mint.key(),
         constraint = authority_token_account.owner == authority.key()
     )]
-    pub authority_token_account: Option<Account<'info, TokenAccount>>,
+    pub authority_token_account: Account<'info, TokenAccount>,
 
     #[account(
-        init_if_needed,
-        payer = authority,
+        mut,
         seeds = [b"pool_token", token_mint.key().as_ref()],
-        bump,
-        token::mint = token_mint,
-        token::authority = pool
+        bump
     )]
     pub pool_token_account: Account<'info, TokenAccount>,
 
@@ -62,20 +59,14 @@ pub fn add_liquidity_handler(
 
     if token_amount > 0 {
         require!(
-            ctx.accounts.authority_token_account.is_some(),
-            LiquidityPoolError::InsufficientLiquidity
-        );
-
-        let authority_token_account = ctx.accounts.authority_token_account.as_ref().unwrap();
-        require!(
-            authority_token_account.amount >= token_amount,
+            ctx.accounts.authority_token_account.amount >= token_amount,
             LiquidityPoolError::InsufficientLiquidity
         );
 
         let transfer_tokens_ctx = CpiContext::new(
             ctx.accounts.token_program.to_account_info(),
             TransferChecked {
-                from: authority_token_account.to_account_info(),
+                from: ctx.accounts.authority_token_account.to_account_info(),
                 to: ctx.accounts.pool_token_account.to_account_info(),
                 mint: ctx.accounts.token_mint.to_account_info(),
                 authority: authority.to_account_info(),
