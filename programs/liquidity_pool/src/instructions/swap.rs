@@ -42,6 +42,7 @@ pub struct SwapTokensForSol<'info> {
     pub token_program: Program<'info, Token>,
     pub system_program: Program<'info, System>,
 
+    /// CHECK: This is a PDA used for CPI event authority
     #[account(
         seeds = [b"__event_authority"],
         bump
@@ -87,6 +88,7 @@ pub struct SwapSolForTokens<'info> {
     pub token_program: Program<'info, Token>,
     pub system_program: Program<'info, System>,
 
+    /// CHECK: This is a PDA used for CPI event authority
     #[account(
         seeds = [b"__event_authority"],
         bump

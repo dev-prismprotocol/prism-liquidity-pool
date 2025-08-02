@@ -1,6 +1,9 @@
 // programs/liquidity_pool/src/lib.rs
 use anchor_lang::prelude::*;
 
+#[cfg(not(feature = "no-entrypoint"))]
+use solana_security_txt::security_txt;
+
 pub mod instructions;
 pub mod state;
 pub mod error;
@@ -8,6 +11,20 @@ pub mod events;
 pub mod utils;
 
 use instructions::*;
+
+#[cfg(not(feature = "no-entrypoint"))]
+security_txt! {
+    name: "Prism Protocol - Liquidity Pool",
+    project_url: "https://prismprotocol.fun",
+    contacts: "email:security@prismprotocol.fun,twitter:https://x.com/prismprotocol_x",
+    policy: "https://prismprotocol.fun/security/policy",
+    preferred_languages: "en",
+    source_code: "https://github.com/prism-protocol-amm/prism-liquidity-pool",
+    source_revision: "v1.0.0",
+    source_release: "v1.0.0",
+    auditors: "None",
+    acknowledgements: "https://prismprotocol.fun/security/acknowledgments"
+}
 
 declare_id!("G7G2o7vaMvacSkMENdBjqjECjpK3USBpDmSzpDo6JWrf");
 
