@@ -57,7 +57,7 @@ pub fn handler(
     pool.is_active = true;
     pool.created_at = current_time;
     pool.fee_basis_points = 0;
-    pool.bump = *ctx.bumps.get("pool").unwrap();
+    pool.bump = ctx.bumps.pool;
     pool.total_volume_sol = 0;
     pool.total_volume_token = 0;
     pool.trade_count = 0;
